@@ -23,7 +23,7 @@ const projects = [
   },
   {
     title: 'InvestEase Portfolio Tracker',
-    description: 'Modern e-commerce store built using React and Stripe API.',
+    description: 'A portfolio tracker for managing and analyzing investments with a personalized chatbot.',
     tech: ['React', 'Node.js', "Supabase", "Gemini API"],
     image: "/InvestEase.png",
     github: 'https://github.com/Ajayrazz/',
