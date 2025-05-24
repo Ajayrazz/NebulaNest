@@ -14,6 +14,14 @@ const projects = [
     live: 'https://your-live-site.com',
   },
   {
+    title: 'PathFinder AI',
+    description: 'An AI-powered platform for personalized learning paths and skill development.',
+    tech: ['React.js', 'TailwindCSS', 'Framer Motion', 'supabase'],
+    image: "/pathfinder.png",
+    github: 'https://github.com/Ajayrazz/',
+    live: 'https://your-live-site.com',
+  },
+  {
     title: 'ZestShelf',
     description: 'Modern e-commerce store built using React and Stripe API.',
     tech: ['Nextjs', 'Stripe', 'Node.js'],
