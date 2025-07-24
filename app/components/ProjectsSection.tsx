@@ -6,6 +6,14 @@ import Image from 'next/image';
 
 const projects = [
   {
+    title: 'DreamDrift AI',
+    description: 'A full-stack AI career coach platform offering resume generation, mock interviews, and personalized career guidance.',
+    tech: ['Next.js', 'NeonDB', 'TailwindCSS', 'Prisma', 'Inngest', 'Shadcn/UI'],
+    image: '/DreamDrift.jpg', // <- relative public folder path
+    github: 'https://github.com/Ajayrazz/',
+    live: 'https://your-live-site.com',
+  },
+  {
     title: 'ProsPly',
     description: 'A full-stack job portal for job search, applications, and recruiter postings.',
     tech: ['React.js', 'TailwindCSS', 'Framer Motion', 'supabase'],

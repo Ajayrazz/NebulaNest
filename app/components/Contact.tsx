@@ -156,7 +156,7 @@ const Contact = () => {
                   <div className="transition-transform group-hover:translate-x-2 duration-300 ease-in-out">
                     <p className="text-textLight text-sm">Email</p>
                     <a href="mailto:gaurav.dash05@gmail.com" className="text-text hover:text-accent transition-colors font-medium">
-                      ajayrazz854334@gmail.com
+                      ajayrazz.swe.official@gmail.com
                     </a>
                   </div>
                 </div>
