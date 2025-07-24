@@ -11,7 +11,7 @@ const projects = [
     tech: ['Next.js', 'NeonDB', 'TailwindCSS', 'Prisma', 'Inngest', 'Shadcn/UI'],
     image: '/DreamDrift.jpg', // <- relative public folder path
     github: 'https://github.com/Ajayrazz/',
-    live: 'https://your-live-site.com',
+    live: 'https://dream-drift-ai.vercel.app/',
   },
   {
     title: 'ProsPly',
