@@ -225,9 +225,9 @@ const CompetitiveProgramming = () => {
       url: "https://leetcode.com",
       profileUrl: "https://leetcode.com/u/AJAYRAZZ/",
       stats: {
-        solved: 720,
-        badges: ["327+ Day Streak", "More than 327 Problems Solved", "15+ Badges Earned"],
-        streak: 327,
+        solved: 770,
+        badges: ["370+ Day Streak", "More than 770 Problems Solved", "20+ Badges Earned"],
+        streak: 370,
         contests: 11,
       }
     },
@@ -252,9 +252,9 @@ const CompetitiveProgramming = () => {
       profileUrl: "https://www.codechef.com/",
       stats: {
         rating: 1271,
-        rank: "2★",
-        contests: 1,
-        solved: 7
+        rank: "5-Star",
+        contests: 15,
+        solved: 150
       }
     }
   ]
