@@ -58,12 +58,12 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <motion.a 
-              href="#projects" 
+              href="https://drive.google.com/file/d/1kI1cg-QVPT_kvFMPlF-47wnTUQjqhqxa/view?usp=sharing" 
               className="btn-primary border-2 px-6 py-3 font-medium relative overflow-hidden group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10" >View My Work</span>
+              <span className="relative z-10" >Resume</span>
               <span className="absolute inset-0 bg-accent/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </motion.a>
             <motion.a 

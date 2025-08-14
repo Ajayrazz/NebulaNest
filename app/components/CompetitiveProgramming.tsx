@@ -225,10 +225,10 @@ const CompetitiveProgramming = () => {
       url: "https://leetcode.com",
       profileUrl: "https://leetcode.com/u/AJAYRAZZ/",
       stats: {
-        solved: 770,
-        badges: ["370+ Day Streak", "More than 770 Problems Solved", "20+ Badges Earned"],
-        streak: 370,
-        contests: 11,
+        solved: 800,
+        badges: ["400+ Day Streak", "More than 800 Problems Solved", "20+ Badges Earned"],
+        streak: 400,
+        contests: 12,
       }
     },
     { 
