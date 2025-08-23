@@ -6,6 +6,15 @@ import Image from 'next/image';
 
 const projects = [
   {
+    title: 'Stock Price Analysis Tool',
+    description: 'A multi-page MERN stack application that analyzes and visualizes stock data using core Data Structures and Algorithms like Monotonic Stack, Greedy, Sliding Window, and Array Traversal.',
+    tech: ['React', 'Express.js', 'Supabase/MongoDB', 'Node.js', 'TailwindCSS', 'Recharts', 'Chart.js', 'D3.js'],
+    image: '/StockAnalysisTool.png', // <- relative public folder path
+    github: 'https://github.com/Ajayrazz/',
+    live: 'https://stockpriceanalysiss.netlify.app/',
+
+  },
+  {
     title: 'DreamDrift AI',
     description: 'A full-stack AI career coach platform offering resume generation, mock interviews, and personalized career guidance.',
     tech: ['Next.js', 'NeonDB', 'TailwindCSS', 'Prisma', 'Inngest', 'Shadcn/UI'],
@@ -133,7 +142,7 @@ const projects = [
     github: 'https://github.com/your-repo',
     live: 'https://your-live-site.com',
   },
-  
+
   // Add more projects...
 ];
 
@@ -168,7 +177,7 @@ function ProjectCard({ project }: { project: any }) {
     >
       {/* Project Image */}
       <div className="relative h-48 w-full">
-        <Image 
+        <Image
           src={project.image}
           alt={project.title}
           layout="fill"
