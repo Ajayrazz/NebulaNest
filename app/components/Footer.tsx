@@ -93,7 +93,7 @@ const Footer = ({ className = '' }: FooterProps) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
         >
-          <p>Built with Next.js, TypeScript, and Tailwind CSS. Deployed on Vercel.</p>
+          <p>Built with Next.js, TypeScript, and Tailwind CSS</p>
         </motion.div>
       </div>
     </footer>
