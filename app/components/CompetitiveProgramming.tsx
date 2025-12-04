@@ -225,10 +225,10 @@ const CompetitiveProgramming = () => {
       url: "https://leetcode.com",
       profileUrl: "https://leetcode.com/u/AJAYRAZZ/",
       stats: {
-        solved: 800,
-        badges: ["400+ Day Streak", "More than 800 Problems Solved", "20+ Badges Earned"],
-        streak: 400,
-        contests: 12,
+        solved: 930,
+        badges: ["500+ Day Streak", "More than 900 Problems Solved", "26+ Badges Earned"],
+        streak: 500,
+        contests: 15,
       }
     },
     { 
@@ -238,10 +238,10 @@ const CompetitiveProgramming = () => {
       url: "https://codeforces.com",
       profileUrl: "https://codeforces.com/profile/",
       stats: {
-        rating: 1010,
+        rating: 1286,
         rank: "Pupil",
-        contests: 8,
-        solved: 150,
+        contests: 20,
+        solved: 350,
       }
     },
     {
