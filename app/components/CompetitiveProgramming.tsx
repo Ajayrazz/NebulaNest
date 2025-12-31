@@ -240,7 +240,7 @@ const CompetitiveProgramming = () => {
       stats: {
         rating: 1286,
         rank: "Pupil",
-        contests: 20,
+        contests: 25,
         solved: 350,
       }
     },
