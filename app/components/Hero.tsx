@@ -58,7 +58,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <motion.a 
-              href="https://drive.google.com/file/d/1r84GXfccbbsUAN3XO2tGN0v0kwCwCIx8/view?usp=sharing" 
+              href="https://drive.google.com/file/d/1yCAHBUTuaiGSiYpB0g0cAwJuklLNRiuF/view?usp=drive_link" 
               className="btn-primary border-2 px-6 py-3 font-medium relative overflow-hidden group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -101,7 +101,7 @@ const Hero = () => {
               {/* Check if profile image exists and display it, otherwise show a placeholder */}
               <div className="relative w-full h-full">
                 <Image 
-                  src="/images/profile.jpg" 
+                  src="/images/AJAY_image.jpg" 
                   alt="Ajay Razz - Profile Picture"
                   fill
                   style={{ objectFit: 'cover' }}
