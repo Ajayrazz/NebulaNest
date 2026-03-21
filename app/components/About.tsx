@@ -131,23 +131,23 @@ const About = () => {
           >
             <FeatureCard
               icon={FaCode}
-              title="Frontend"
-              description="Building responsive, interactive UIs with modern frameworks"
+              title="FullStack Developer"
+              description="Building scalable full-stack applications with modern technologies."
             />
             <FeatureCard
               icon={FaServer}
-              title="Backend"
-              description="Developing robust server-side applications and APIs"
+              title="Android Developer"
+              description="Building fast, reliable Android apps with seamless user experiences."
+            />
+            <FeatureCard
+              icon={FaBrain}
+              title="iOS Developer"
+              description="Building elegant, responsive iOS apps with intuitive design."
             />
             <FeatureCard
               icon={FaBrain}
               title="Problem Solving"
               description="Finding elegant solutions to complex challenges"
-            />
-            <FeatureCard
-              icon={FaMobileAlt}
-              title="Responsive Design"
-              description="Creating experiences that work on any device"
             />
           </motion.div>
         </motion.div>
@@ -162,7 +162,7 @@ const About = () => {
           <div className="relative bg-secondary/70 backdrop-blur-sm p-8 rounded-lg border border-accent/10">
             <h3 className="text-2xl text-text font-bold mb-8 relative inline-block">
               My Skills
-              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-accent"></span>
+              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 "></span>
             </h3>
             <div>
               {skills.map((skill) => (

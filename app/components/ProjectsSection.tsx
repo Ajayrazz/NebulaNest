@@ -153,8 +153,12 @@ const cardVariants = {
 
 export default function ProjectsSection() {
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2>
+    <section id="projects" className="py-12 px-4 max-w-7xl mx-auto">
+      <div className="section-heading-container">
+        <h2 className="section-heading relative inline-block">
+          Things I’ve Engineered
+        </h2>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />

@@ -1,19 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-// Configure nodemailer with your email service
+// Configure nodemailer with explicit SMTP settings
 const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE || 'gmail',
+  host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+  port: Number(process.env.EMAIL_PORT) || 465,
+  secure: true, // true for 465, false for other ports
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD
+    user: process.env.EMAIL_USER || process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASS || process.env.EMAIL_PASSWORD
   }
 });
 
 async function sendEmail(data: any) {
   const mailOptions = {
     from: data.email,
-    to: process.env.EMAIL_USER, 
+    to: process.env.EMAIL_USER || process.env.EMAIL_USERNAME,
     subject: data.subject,
     text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
     html: `
@@ -38,15 +40,15 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { name, email, subject, message } = body
-    
+
     // Basic validation
     if (!name || !email || !message) {
-      return NextResponse.json({ 
-        success: false, 
-        error: 'Name, email, and message are required' 
+      return NextResponse.json({
+        success: false,
+        error: 'Name, email, and message are required'
       }, { status: 400 })
     }
-    
+
     // Send email (real implementation)
     const emailSent = await sendEmail({
       name,
@@ -54,20 +56,20 @@ export async function POST(request: NextRequest) {
       subject: subject || 'New contact from portfolio',
       message
     })
-    
+
     if (emailSent) {
-      return NextResponse.json({ 
-        success: true, 
-        message: 'Your message has been sent successfully!' 
+      return NextResponse.json({
+        success: true,
+        message: 'Your message has been sent successfully!'
       })
     } else {
       throw new Error('Failed to send email')
     }
   } catch (error) {
     console.error('Error in contact API route:', error)
-    return NextResponse.json({ 
-      success: false, 
-      error: 'Failed to send message. Please try again later.' 
+    return NextResponse.json({
+      success: false,
+      error: 'Failed to send message. Please try again later.'
     }, { status: 500 })
   }
 }

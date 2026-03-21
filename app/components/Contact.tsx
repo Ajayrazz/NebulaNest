@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaEnvelope, FaLinkedin, FaGithub, FaDiscord, FaPaperPlane, FaTwitter } from 'react-icons/fa'
+import axios from 'axios'
 
 type FormState = {
   name: string;
@@ -32,19 +33,16 @@ const Contact = () => {
     e.preventDefault()
     setStatus('loading')
     setErrorMessage('')
-    
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      // Use axios for the reliable frontend request
+      const response = await axios.post('/api/contact', formData, {
         headers: {
           'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        }
       })
-      
-      const data = await response.json()
-      
-      if (data.success) {
+
+      if (response.data.success) {
         setStatus('success')
         setFormData({
           name: '',
@@ -54,21 +52,27 @@ const Contact = () => {
         })
       } else {
         setStatus('error')
-        setErrorMessage(data.error || 'Something went wrong. Please try again.')
+        setErrorMessage(response.data.error || 'Something went wrong. Please try again.')
       }
-    } catch (error) {
+    } catch (error: any) {
+      console.error('Frontend Submission Error:', error);
       setStatus('error')
-      setErrorMessage('Failed to send message. Please try again later.')
+      // Extract exact error from axios response if it exists
+      setErrorMessage(
+        error.response?.data?.error ||
+        error.message ||
+        'Failed to send message. Please try again later.'
+      )
     }
   }
 
   // Card container animation variant
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.6,
         ease: [0.22, 1, 0.36, 1]
       }
@@ -78,10 +82,10 @@ const Contact = () => {
   // Staggered item animation
   const itemVariants = {
     hidden: { opacity: 0, y: 10 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.4
       }
     }
@@ -108,138 +112,19 @@ const Contact = () => {
         className="container mx-auto px-4 max-w-7xl"
       >
         <div className="section-heading-container">
-          <motion.h2 
+          <motion.h2
             className="section-heading"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Get In Touch
+            Let’s Build Together
           </motion.h2>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-          {/* Contact Info Card */}
-          <motion.div
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="contact-card hover:shadow-2xl backdrop-blur-lg hover:shadow-accent/30 h-full transform transition-all duration-500"
-            whileHover={{ 
-              y: -8,
-              transition: { type: "spring", stiffness: 300 }
-            }}
-          >
-            <h3 className="text-2xl font-semibold text-text mb-8 bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent">
-              Contact Information
-            </h3>
-            
-            <motion.div 
-              className="space-y-8"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {/* Email */}
-              <motion.div 
-                variants={itemVariants}
-                className="group relative"
-              >
-                <div className="flex items-center space-x-4 relative z-10">
-                  <div className="contact-icon animate-glow group-hover:rotate-12">
-                    <FaEnvelope size={20} className="group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="transition-transform group-hover:translate-x-2 duration-300 ease-in-out">
-                    <p className="text-textLight text-sm">Email</p>
-                    <a href="mailto:gaurav.dash05@gmail.com" className="text-text hover:text-accent transition-colors font-medium">
-                      ajayrazz.swe.official@gmail.com
-                    </a>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-accent/5 scale-0 group-hover:scale-100 rounded-lg transition-transform duration-300 ease-in-out -z-0"></div>
-              </motion.div>
-              
-              {/* LinkedIn */}
-              <motion.div 
-                variants={itemVariants}
-                className="group relative"
-              >
-                <div className="flex items-center space-x-4 relative z-10">
-                  <div className="contact-icon group-hover:rotate-12">
-                    <FaLinkedin size={20} className="group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="transition-transform group-hover:translate-x-2 duration-300 ease-in-out">
-                    <p className="text-textLight text-sm">LinkedIn</p>
-                    <a href="https://www.linkedin.com/in/ajay-razz/" target="_blank" rel="noopener noreferrer" className="text-text hover:text-accent transition-colors font-medium">
-                    linkedin.com/in/ajay-razz/
-                    </a>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-accent/5 scale-0 group-hover:scale-100 rounded-lg transition-transform duration-300 ease-in-out -z-0"></div>
-              </motion.div>
-              
-              {/* GitHub */}
-              <motion.div 
-                variants={itemVariants}
-                className="group relative"
-              >
-                <div className="flex items-center space-x-4 relative z-10">
-                  <div className="contact-icon group-hover:rotate-12">
-                    <FaGithub size={20} className="group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="transition-transform group-hover:translate-x-2 duration-300 ease-in-out">
-                    <p className="text-textLight text-sm">GitHub</p>
-                    <a href="https://github.com/Ajayrazz" target="_blank" rel="noopener noreferrer" className="text-text hover:text-accent transition-colors font-medium">
-                    github.com/Ajayrazz
-                    </a>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-accent/5 scale-0 group-hover:scale-100 rounded-lg transition-transform duration-300 ease-in-out -z-0"></div>
-              </motion.div>
-              
-              {/* Discord */}
-              <motion.div 
-                variants={itemVariants}
-                className="group relative"
-              >
-                {/* <div className="flex items-center space-x-4 relative z-10">
-                  <div className="contact-icon group-hover:rotate-12">
-                    <FaDiscord size={20} className="group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="transition-transform group-hover:translate-x-2 duration-300 ease-in-out">
-                    <p className="text-textLight text-sm">Discord</p>
-                    <a href="https://discord.com/users/gariffon" target="_blank" rel="noopener noreferrer" className="text-text hover:text-accent transition-colors font-medium">
-                      gariffon
-                    </a>
-                  </div>
-                </div> */}
-                <div className="absolute inset-0 bg-accent/5 scale-0 group-hover:scale-100 rounded-lg transition-transform duration-300 ease-in-out -z-0"></div>
-              </motion.div>
-              
-              {/* Twitter */}
-              <motion.div 
-                variants={itemVariants}
-                className="group relative"
-              >
-                <div className="flex items-center space-x-4 relative z-10">
-                  <div className="contact-icon group-hover:rotate-12">
-                    <FaTwitter size={20} className="group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="transition-transform group-hover:translate-x-2 duration-300 ease-in-out">
-                    <p className="text-textLight text-sm">Twitter</p>
-                    <a href="https://x.com/AjayRaz18514034" target="_blank" rel="noopener noreferrer" className="text-text hover:text-accent transition-colors font-medium">
-                      @AjayRaz18514034
-                    </a>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-accent/5 scale-0 group-hover:scale-100 rounded-lg transition-transform duration-300 ease-in-out -z-0"></div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-          
+
+        <div className="flex justify-center items-center w-full max-w-lg mx-auto">
+
           {/* Contact Form Card */}
           <motion.div
             variants={cardVariants}
@@ -247,8 +132,8 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="contact-card hover:shadow-2xl backdrop-blur-lg hover:shadow-accent/30 h-full transform transition-all duration-500"
-            whileHover={{ 
+            className="contact-card w-full hover:shadow-2xl backdrop-blur-lg hover:shadow-accent/30 h-full transform transition-all duration-500"
+            whileHover={{
               y: -8,
               transition: { type: "spring", stiffness: 300 }
             }}
@@ -256,7 +141,7 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold mb-8 bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent">
               Send Me a Message
             </h3>
-            
+
             <form className="space-y-6" onSubmit={handleSubmit}>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -267,9 +152,9 @@ const Contact = () => {
               >
                 <label htmlFor="name" className="block text-textLight text-sm mb-2 font-medium group-focus-within:text-accent transition-colors">Name</label>
                 <div className="relative">
-                  <input 
-                    type="text" 
-                    id="name" 
+                  <input
+                    type="text"
+                    id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -280,7 +165,7 @@ const Contact = () => {
                   <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-accent to-purple-400 group-focus-within:w-full transition-all duration-300 ease-in-out"></div>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -290,9 +175,9 @@ const Contact = () => {
               >
                 <label htmlFor="email" className="block text-textLight text-sm mb-2 font-medium group-focus-within:text-accent transition-colors">Email</label>
                 <div className="relative">
-                  <input 
-                    type="email" 
-                    id="email" 
+                  <input
+                    type="email"
+                    id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -303,7 +188,7 @@ const Contact = () => {
                   <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-accent to-purple-400 group-focus-within:w-full transition-all duration-300 ease-in-out"></div>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -313,9 +198,9 @@ const Contact = () => {
               >
                 <label htmlFor="subject" className="block text-textLight text-sm mb-2 font-medium group-focus-within:text-accent transition-colors">Subject</label>
                 <div className="relative">
-                  <input 
-                    type="text" 
-                    id="subject" 
+                  <input
+                    type="text"
+                    id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
@@ -326,7 +211,7 @@ const Contact = () => {
                   <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-accent to-purple-400 group-focus-within:w-full transition-all duration-300 ease-in-out"></div>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -336,9 +221,9 @@ const Contact = () => {
               >
                 <label htmlFor="message" className="block text-textLight text-sm mb-2 font-medium group-focus-within:text-accent transition-colors">Message</label>
                 <div className="relative">
-                  <textarea 
-                    id="message" 
-                    name="message" 
+                  <textarea
+                    id="message"
+                    name="message"
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
@@ -349,15 +234,15 @@ const Contact = () => {
                   <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-accent to-purple-400 group-focus-within:w-full transition-all duration-300 ease-in-out"></div>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7, duration: 0.4 }}
               >
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={status === 'loading'}
                   className="w-full mt-6 bg-gradient-to-r from-accent to-purple-400 hover:from-accent hover:to-blue-400 text-primary font-semibold py-3 px-6 rounded-lg transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-accent/30 flex items-center justify-center gap-2 disabled:opacity-70 group"
                 >
@@ -367,7 +252,7 @@ const Contact = () => {
                   <FaPaperPlane className="text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                 </button>
               </motion.div>
-              
+
               <AnimatePresence>
                 {status === 'success' && (
                   <motion.div
@@ -379,7 +264,7 @@ const Contact = () => {
                     Your message has been sent successfully! I'll get back to you soon.
                   </motion.div>
                 )}
-                
+
                 {status === 'error' && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}

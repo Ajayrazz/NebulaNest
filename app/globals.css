@@ -115,10 +115,7 @@ code, pre, .font-mono {
     letter-spacing: -0.02em;
   }
   
-  .section-heading::after {
-    @apply content-[''] absolute -bottom-3 left-0 right-0 mx-auto w-24 h-1 bg-accent;
-  }
-  
+
   .section-heading-container {
     @apply flex justify-center w-full;
   }
