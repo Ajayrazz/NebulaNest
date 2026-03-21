@@ -1,8 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Montserrat, Fira_Code } from 'next/font/google'
+import { Playfair_Display, Inter, Montserrat, Fira_Code } from 'next/font/google'
 
-const inter = Inter({ 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+})
+
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
@@ -36,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable} ${montserrat.variable} ${firaCode.variable}`}>
-      <body className={`${inter.className} overflow-x-hidden min-h-screen font-sans bg-fixed`}>
+    <html lang="en" className={`scroll-smooth ${playfair.variable} ${inter.variable} ${montserrat.variable} ${firaCode.variable}`}>
+      <body className={`${playfair.className} overflow-x-hidden min-h-screen bg-fixed`}>
         {children}
       </body>
     </html>

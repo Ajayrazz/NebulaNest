@@ -100,7 +100,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 scroll-mt-20">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,rgba(100,255,218,0.08),transparent_70%)]"></div>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

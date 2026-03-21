@@ -154,53 +154,11 @@ const AnimatedBackground = () => {
         className="fixed top-0 left-0 w-full h-full -z-10"
       />
       
-      {/* Glowing orbs - subtle on black */}
-      <div className="fixed top-1/3 -left-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow opacity-20 -z-20"></div>
-      <div className="fixed bottom-20 -right-40 w-[30rem] h-[30rem] bg-accent/10 rounded-full blur-3xl animate-pulse-slow opacity-20 -z-20 animation-delay-2000"></div>
-      <div className="fixed top-2/3 right-1/4 w-64 h-64 bg-pink-400/10 rounded-full blur-3xl animate-pulse-slow opacity-15 -z-20 animation-delay-4000"></div>
-
       {/* Subtle grid pattern */}
       <div 
         className="fixed inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-[0.015] -z-20 pointer-events-none"
         style={{ backgroundSize: '30px 30px' }}
       ></div>
-
-      {/* Animated radial gradients */}
-      <motion.div 
-        className="fixed top-1/2 left-1/2 w-[100vh] h-[100vh] rounded-full blur-3xl -z-20 opacity-[0.02] pointer-events-none"
-        initial={{ opacity: 0.01 }}
-        animate={{ 
-          opacity: [0.01, 0.02, 0.01],
-          scale: [0.8, 1.2, 0.8]
-        }}
-        transition={{ 
-          duration: 15, 
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        style={{ 
-          background: 'radial-gradient(circle, rgba(100,255,218,1) 0%, rgba(100,255,218,0) 70%)',
-          transform: 'translate(-50%, -50%)'
-        }}
-      />
-
-      <motion.div 
-        className="fixed top-1/3 left-1/4 w-[60vh] h-[60vh] rounded-full blur-3xl -z-20 opacity-[0.02] pointer-events-none"
-        initial={{ opacity: 0.01 }}
-        animate={{ 
-          opacity: [0.01, 0.02, 0.01],
-          scale: [0.9, 1.1, 0.9]
-        }}
-        transition={{ 
-          duration: 12, 
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-        style={{ 
-          background: 'radial-gradient(circle, rgba(148,130,255,1) 0%, rgba(148,130,255,0) 70%)',
-        }}
-      />
     </>
   )
 }

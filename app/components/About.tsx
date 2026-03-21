@@ -46,7 +46,7 @@ const SkillBar = ({ name, level }: { name: string; level: number }) => {
 
 const FeatureCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => {
   return (
-    <motion.div 
+    <motion.div
       className="bg-secondary/30 backdrop-blur-sm border border-accent/10 rounded-lg p-6 hover:bg-secondary/50 transition-all duration-300"
       whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(100, 255, 218, 0.1)' }}
     >
@@ -89,8 +89,8 @@ const About = () => {
       {/* Decorative element */}
       <div className="absolute right-0 top-20 w-24 h-24 bg-accent/5 rounded-full blur-xl"></div>
       <div className="absolute left-10 bottom-10 w-32 h-32 bg-accent/5 rounded-full blur-xl"></div>
-      
-      <div className="section-heading-container">
+
+      {/* <div className="section-heading-container">
         <motion.h2 
           className="section-heading"
           initial={{ opacity: 0, y: 20 }}
@@ -99,8 +99,8 @@ const About = () => {
         >
           About Me
         </motion.h2>
-      </div>
-      
+      </div> */}
+
       <div className="grid md:grid-cols-2 gap-12">
         <motion.div
           ref={ref}
@@ -110,48 +110,48 @@ const About = () => {
           className="relative z-10"
         >
           <motion.p variants={itemVariants} className="text-textLight mb-6 text-lg">
-            Hello! I'm <span className="text-accent font-medium">Ajay Razz</span>. I'm a passionate software developer with a knack for creating efficient, scalable, and user-friendly solutions to complex problems.
+            Hello! I'm <span className="text-accent font-medium">Ajay Razz</span>, a dedicated software engineer focused on architecting robust, scalable systems and highly intuitive user interfaces.
           </motion.p>
-          
+
           <motion.p variants={itemVariants} className="text-textLight mb-6">
-            My journey into programming began with a curiosity about how things work behind the scenes. This curiosity evolved into a passion for building applications that make a difference in people's lives.
+            My engineering approach replaces standard curiosity with rigorous, analytical problem-solving, transforming intricate technical requirements into seamless digital experiences.
           </motion.p>
-          
+
           <motion.p variants={itemVariants} className="text-textLight mb-6">
-            I believe in writing clean, maintainable code and constantly learning new technologies. My development philosophy centers around user experience, performance, and creating solutions that stand the test of time.
+            I prioritize writing clean, maintainable code while continuously adopting modern frameworks to optimize both backend performance and frontend accessibility. Ultimately, my core objective remains delivering premium, enduring products that directly elevate everyday interactions.
           </motion.p>
-          
+
           <motion.p variants={itemVariants} className="text-textLight">
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
+            Beyond active development, I dedicate time toward competitive programming, mastering artificial intelligence integrations, contributing to collaborative open-source projects, and actively empowering peers across the global developer community. Let us build something extraordinary together today.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             variants={itemVariants}
             className="mt-8 grid grid-cols-2 gap-4"
           >
-            <FeatureCard 
+            <FeatureCard
               icon={FaCode}
               title="Frontend"
               description="Building responsive, interactive UIs with modern frameworks"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={FaServer}
               title="Backend"
               description="Developing robust server-side applications and APIs"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={FaBrain}
               title="Problem Solving"
               description="Finding elegant solutions to complex challenges"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={FaMobileAlt}
               title="Responsive Design"
               description="Creating experiences that work on any device"
             />
           </motion.div>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
