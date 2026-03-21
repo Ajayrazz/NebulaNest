@@ -3,7 +3,7 @@ import { getGithubRepos, formatRepoData } from '@/app/utils/github'
 
 export async function GET() {
   try {
-    const username = process.env.GITHUB_USERNAME
+    const username = process.env.GITHUB_USERNAME || 'Ajayrazz'
     const repos = await getGithubRepos(username)
     const formattedRepos = formatRepoData(repos)
     
