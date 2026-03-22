@@ -13,6 +13,11 @@ module.exports = {
         mono: ['var(--font-mono)'],
       },
       colors: {
+        border: 'var(--border)',
+        input: 'var(--input)',
+        ring: 'var(--ring)',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
         primary: '#0A192F',
         secondary: '#172A45',
         accent: '#64FFDA',

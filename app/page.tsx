@@ -7,6 +7,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import AnimatedBackground from './components/AnimatedBackground'
 import ProjectsSection from './components/ProjectsSection'
+import MacbookShowcase from './components/MacbookShowcase'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <About />
         <CompetitiveProgramming />
+        <MacbookShowcase />
         <ProjectsSection />
         <Timeline />
         <Contact />
